@@ -1,0 +1,51 @@
+# Ignore build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.app
+
+# Ignore NuGet packages
+*.nupkg
+# Packages folder (if present)
+**/packages/
+
+# Ignore Visual Studio/JetBrains Rider specific files
+.vscode/
+.vs/
+.idea/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore auto-generated files
+Generated/
+
+# Ignore logs and temp files
+*.log
+*.tlog
+*.tmp
+*.cache
+*.csproj.user
+*.db
+
+# Ignore publish outputs
+wwwroot/
+dist/
+publish/
+*.published*
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore environment-specific files
+.env
+.env.*
+appsettings.Development.json
+appsettings.Staging.json
