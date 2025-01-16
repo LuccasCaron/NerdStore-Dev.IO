@@ -1,4 +1,6 @@
-﻿namespace NerdStore.Core.DomainObjects;
+﻿using NerdStore.Core.Messages;
+
+namespace NerdStore.Core.DomainObjects;
 
 public abstract class Entity
 {
@@ -9,6 +11,29 @@ public abstract class Entity
     }
 
     public Guid Id { get; init; }
+
+    private List<Event> _notificacoes;
+
+    public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly()!;
+
+
+    public void AdicionarEvento(Event evento)
+    {
+        _notificacoes = _notificacoes ?? new List<Event>();
+        _notificacoes.Add(evento);
+    }
+
+    public void RemoverEvento(Event eventItem)
+    {
+        _notificacoes?.Remove(eventItem);
+    }
+
+    public void LimparEventos()
+    {
+        _notificacoes?.Clear();
+    }
+
+
 
     public override bool Equals(object? obj)
     {
@@ -42,6 +67,11 @@ public abstract class Entity
     public override string ToString()
     {
         return GetType().Name + " [Id=" + Id + "]";
+    }
+
+    public virtual bool EhValido()
+    {
+        throw new NotImplementedException();
     }
 
 }
